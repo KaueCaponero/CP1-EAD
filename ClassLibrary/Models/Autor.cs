@@ -10,13 +10,13 @@ namespace ClassLibrary.Models
     {
         public string pseudonimo;
 
-        // Construtor Padrão - Testado na Linha 290 do Console
+        // Construtor Padrão
         public Autor()
         {
 
         }
 
-        // Construtor Especializado - Testado na Linha 131 do Console
+        // Construtor Especializado
         public Autor(Pessoa pessoa, string pseudonimo)
         {
             this.id = pessoa.id;
@@ -24,7 +24,7 @@ namespace ClassLibrary.Models
             this.pseudonimo = pseudonimo;
         }
 
-        // Construtor Completo - Não Testado
+        // Construtor Completo
         public Autor(int id, string nome, string pseudonimo)
         {
             this.id = id;
@@ -32,7 +32,7 @@ namespace ClassLibrary.Models
             this.pseudonimo= pseudonimo;
         }
 
-        // Método que Sobrescreve o Método Virtual de Pessoa - Testado na Linha 347 do Console
+        // Método que Sobrescreve o Método Virtual de Pessoa
         public override string getNome()
         {
             if (nome == null)
@@ -42,7 +42,7 @@ namespace ClassLibrary.Models
             return nome;
         }
 
-        // Método Protegido para Retornar o Pseudonimo de um Autor - Não Testado
+        // Método Protegido para Retornar o Pseudonimo de um Autor
         protected string getPseudonimo()
         {
             Console.WriteLine($"O Pseudônimo do autor é: {pseudonimo}");

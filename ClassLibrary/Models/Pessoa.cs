@@ -11,26 +11,26 @@ namespace ClassLibrary.Models
         public int id;
         public string nome;
 
-        // Construtor Padrão - Testado na Linha 124 do Console
+        // Construtor Padrão
         public Pessoa()
         {
 
         }
 
-        // Construtor Especializado - Testado na Linha 597 do Console
+        // Construtor Especializado
         public Pessoa(string nome)
         {
             this.nome = nome;
         }
 
-        // Construtor Completo - Testado na Linha 20 do Console
+        // Construtor Completo
         public Pessoa(int id, string nome)
         {
             this.id = id;
             this.nome = nome;
         }
 
-        // Método Virtual para ser Sobrescrito - Testado na Linha 626 do Console
+        // Método Virtual para ser Sobrescrito
         public virtual string getNome()
         {
             return nome;

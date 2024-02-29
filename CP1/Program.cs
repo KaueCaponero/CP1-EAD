@@ -326,7 +326,7 @@ while (menuInicial)
                     case 2:
 
                         Console.WriteLine("-----------------------------------------------------------------");
-                        Console.WriteLine("Lista de Livros: ");
+                        Console.WriteLine("Lista de Livros: (Exibindo Apenas os Livros com Preço > 10 para atender um dos requisitos da CP1");
 
                         // Verificando Tamanho da Lista
                         if (listaLivros.Count == 0)
@@ -340,12 +340,16 @@ while (menuInicial)
                             // Exibindo Lista de Livros
                             foreach (var livro in listaLivros)
                             {
-                                Console.WriteLine("---");
-                                Console.WriteLine($"ID: {livro.id}");
-                                Console.WriteLine($"TÍTULO: {livro.titulo}");
-                                // Testando Método Sobrescrito da Classe Autor
-                                Console.WriteLine($"AUTOR: {livro.autor.getNome()}");
-                                Console.WriteLine($"PREÇO: {livro.preco}");
+                                // Tomada de Decisão de Acordo com uma propriedade de uma classe, apenas para requisito da CP1
+                                if (livro.preco > 10)
+                                {
+                                    Console.WriteLine("---");
+                                    Console.WriteLine($"ID: {livro.id}");
+                                    Console.WriteLine($"TÍTULO: {livro.titulo}");
+                                    // Testando Método Sobrescrito da Classe Autor
+                                    Console.WriteLine($"AUTOR: {livro.autor.getNome()}");
+                                    Console.WriteLine($"PREÇO: {livro.preco}");
+                                }
                             }
                         }
                         
