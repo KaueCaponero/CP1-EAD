@@ -8,10 +8,10 @@ namespace ClassLibrary.Models
 {
     public class Livro
     {
-        protected int id;
-        protected string titulo;
-        protected Autor autor;
-        protected double preco;
+        public int id;
+        public string titulo;
+        public Autor autor;
+        public double preco;
 
         // Construtor Especializado
         public Livro(string titulo, Autor autor)
