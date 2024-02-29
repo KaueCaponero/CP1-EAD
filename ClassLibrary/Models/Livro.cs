@@ -13,14 +13,14 @@ namespace ClassLibrary.Models
         public Autor autor;
         public double preco;
 
-        // Construtor Especializado
+        // Construtor Especializado - Não Testado
         public Livro(string titulo, Autor autor)
         {
             this.titulo = titulo;
             this.autor = autor;
         }
 
-        // Construtor Completo
+        // Construtor Completo - Testado Na Linha 317 do Console 
         public Livro(int id, string titulo, Autor autor, double preco)
         {
             this.id = id;
@@ -29,7 +29,7 @@ namespace ClassLibrary.Models
             this.preco = preco;
         }
 
-        // Construtor Chamando Outro Construtor
+        // Construtor Chamando Outro Construtor - Não Testado
         public Livro(Autor autor) : this("Título 01", autor) { }
     }
 }

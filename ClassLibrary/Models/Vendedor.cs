@@ -10,13 +10,13 @@ namespace ClassLibrary.Models
     {
         protected string cpf;
 
-        // Construtor Padrão
+        // Construtor Padrão - Não Testado
         public Vendedor()
         {
 
         }
 
-        // Construtor Especializado
+        // Construtor Especializado - Testado na Linha 739 do Console
         public Vendedor(Pessoa pessoa, string cpf)
         {
             this.id = pessoa.id;
@@ -24,7 +24,7 @@ namespace ClassLibrary.Models
             this.cpf = cpf;
         }
 
-        // Construtor Completo
+        // Construtor Completo - Não Testado
         public Vendedor(int id, string nome, string cpf)
         {
             this.id = id;
@@ -32,19 +32,25 @@ namespace ClassLibrary.Models
             this.cpf = cpf;
         }
 
-        // Método que Sobrescreve o Método Virtual de Pessoa
+        // Método que Sobrescreve o Método Virtual de Pessoa - Testado na Linha 800 do Console
         public override string getNome()
         {
             if (nome == null)
             {
-                Console.WriteLine("O Nome do Vendedor não foi cadastrado.");
+                Console.WriteLine("O NOME do Vendedor não foi cadastrado.");
                 return null;
             }
-            Console.WriteLine($"O Nome do Vendedor é: {nome}");
+            Console.WriteLine($"O NOME do Vendedor é: {nome}");
             return nome;
         }
 
-        // Método Privado para Retornar o CPF de um Vendedor
+        // Método Público que Chama o Método Privado - Testado na Linha 769 do Console
+        public void printCpf(Vendedor vendedor)
+        {
+            Console.WriteLine($"CPF: {vendedor.getCpf()}");
+        }
+
+        // Método Privado para Retornar o CPF de um Vendedor - Testado na Linha 769 do Console Através do Método printCpf
         private string getCpf()
         {
             return cpf;
