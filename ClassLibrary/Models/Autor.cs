@@ -33,13 +33,13 @@ namespace ClassLibrary.Models
         }
 
         // Método que Sobrescreve o Método Virtual de Pessoa
-        protected override void getNome()
+        public override string getNome()
         {
             if (nome == null)
             {
-                Console.WriteLine("Nome é nulo.");
+                return null;
             }
-            Console.WriteLine($"O nome do Autor é: {nome}");
+            return nome;
         }
 
         // Método Protegido para retornar o Pseudonimo de um Autor

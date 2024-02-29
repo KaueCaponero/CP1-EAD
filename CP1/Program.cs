@@ -36,8 +36,7 @@ listaVendedores.Add(vendedor2);
 // Declarando Variáveis que vão controlar a execução dos Whiles
 var menuInicial = true;
 
-// Declarando Variável global
-
+// Método para exibir menu da Classe
 void opcoesClasses(string nomeClasse, string nomeClassePlural)
 {
     Console.WriteLine();
@@ -50,11 +49,13 @@ void opcoesClasses(string nomeClasse, string nomeClassePlural)
     Console.WriteLine("Digite a Opção Desejada:");
 }
 
+// Início do Programa
 while (menuInicial)
 {
     // Declarando Variáveis que vão controlar a execução dos Whiles
     var menuClasse = true;
 
+    // Exibindo Menu Inicial
     Console.WriteLine();
     Console.WriteLine("-----------------------------------------------------------------");
     Console.WriteLine("1. Autores");
@@ -107,12 +108,14 @@ while (menuInicial)
                         var pseudonimoAutor = Console.ReadLine();
 
                         // Cadastrando nova Pessoa e adicionando na Lista
+                        // Testando Construtor Padrão
                         Pessoa novaPessoa = new Pessoa();
                         novaPessoa.id = idAutor;
                         novaPessoa.nome = nomeAutor;
                         listaPessoas.Add(novaPessoa);
 
                         // Cadastrando novo Autor e adicionando na Lista
+                        // Testando Construtor Personalizado
                         Autor novoAutor = new Autor(novaPessoa, pseudonimoAutor);
                         listaAutores.Add(novoAutor);
 
@@ -128,13 +131,25 @@ while (menuInicial)
                         Console.WriteLine("-----------------------------------------------------------------");
                         Console.WriteLine("Lista de Autores: ");
 
-                        // Exibindo Lista de Autores e Dados
-                        foreach (var autor in listaAutores)
+                        // Verificando Tamanho da Lista
+                        if (listaAutores.Count == 0)
                         {
-                            Console.WriteLine("-------------------------");
-                            Console.WriteLine($"ID: {autor.id}");
-                            Console.WriteLine($"NOME: {autor.nome}");
-                            Console.WriteLine($"PSEUDÔNIMO: {autor.pseudonimo}");
+                            Console.WriteLine("A Lista de Autores está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
+                        }
+                        else
+                        {
+                            // Exibindo Lista de Autores e Dados
+                            foreach (var autor in listaAutores)
+                            {
+                                Console.WriteLine("-------------------------");
+                                Console.WriteLine($"ID: {autor.id}");
+                                Console.WriteLine($"NOME: {autor.nome}");
+                                Console.WriteLine($"PSEUDÔNIMO: {autor.pseudonimo}");
+                            }
                         }
 
                         // Voltando ao menu anterior
@@ -148,13 +163,25 @@ while (menuInicial)
                         Console.WriteLine("-----------------------------------------------------------------");
                         Console.WriteLine("Lista de Autores: ");
 
-                        // Exibindo Lista de Autores e Dados
-                        foreach (var autor in listaAutores)
+                        // Verificando Tamanho da Lista
+                        if (listaAutores.Count == 0)
                         {
-                            Console.WriteLine("-------------------------");
-                            Console.WriteLine($"ID: {autor.id} | NOME: {autor.nome}");
+                            Console.WriteLine("A Lista de Autores está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
                         }
-
+                        else
+                        {
+                            // Exibindo Lista de Autores e Dados
+                            foreach (var autor in listaAutores)
+                            {
+                                Console.WriteLine("-------------------------");
+                                Console.WriteLine($"ID: {autor.id} | NOME: {autor.nome}");
+                            }
+                        }
+                        
                         // Capturando o ID do Autor a ser Deletado
                         Console.WriteLine("Digite o ID do Autor que Deseja Deletar: ");
                         var idDelete = int.Parse(Console.ReadLine());
@@ -226,14 +253,26 @@ while (menuInicial)
                         Console.WriteLine("Digite o TÍTULO do Novo Livro: ");
                         var tituloLivro = Console.ReadLine();
 
-                        // Exibindo a lista de Autores para Selecionar o ID
-                        foreach (var autor in listaAutores)
+                        // Verificando Tamanho da Lista
+                        if (listaAutores.Count == 0)
                         {
-                            Console.WriteLine("-------------------------");
-                            Console.WriteLine($"ID: {autor.id} | NOME: {autor.nome} | PSEUDÔNIMO: {autor.pseudonimo}");
+                            Console.WriteLine("A Lista de Autores está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
+                        }
+                        else
+                        {
+                            // Exibindo Lista de Autores e Dados
+                            foreach (var autor in listaAutores)
+                            {
+                                Console.WriteLine("-------------------------");
+                                Console.WriteLine($"ID: {autor.id} | NOME: {autor.nome} | PSEUDÔNIMO: {autor.pseudonimo}");
+                            }
                         }
 
-                        // Pedidno o ID do Autor do Livro
+                        // Pedindo o ID do Autor do Livro
                         Console.WriteLine("Digite o ID do Autor do Livro: ");
                         var idAutor = int.Parse(Console.ReadLine());
 
@@ -285,15 +324,27 @@ while (menuInicial)
                         Console.WriteLine("Lista de Livros: ");
 
                         // Exibindo Lista de Livros e Dados
-                        foreach (var livro in listaLivros)
+                        if (listaLivros.Count == 0)
                         {
-                            Console.WriteLine("-------------------------");
-                            Console.WriteLine($"ID: {livro.id}");
-                            Console.WriteLine($"TÍTULO: {livro.titulo}");
-                            Console.WriteLine($"AUTOR: {livro.autor.nome}");
-                            Console.WriteLine($"PREÇO: {livro.preco}");
+                            Console.WriteLine("A Lista de Livros está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
                         }
-
+                        else
+                        {
+                            foreach (var livro in listaLivros)
+                            {
+                                Console.WriteLine("-------------------------");
+                                Console.WriteLine($"ID: {livro.id}");
+                                Console.WriteLine($"TÍTULO: {livro.titulo}");
+                                // Testando Método Sobrescrito
+                                Console.WriteLine($"AUTOR: {livro.autor.getNome}");
+                                Console.WriteLine($"PREÇO: {livro.preco}");
+                            }
+                        }
+                        
                         // Voltando ao menu anterior
                         Console.WriteLine("-----------------------------------------------------------------");
                         Console.WriteLine("Digite qualquer tecla para continuar");
@@ -352,6 +403,155 @@ while (menuInicial)
             }
             break;
 
+        // Menu de Lojas
+        case 3:
+
+            // Setando menuClasse como true
+            menuClasse = true;
+
+            // Chamando o opcoesClasses para exibição do menu da Classe
+            while (menuClasse)
+            {
+                // Exibindo menu da Classe
+                opcoesClasses("Loja", "Lojas");
+
+                // Capturando a opção desejada
+                var opcaoEscolhidaClasse = int.Parse(Console.ReadLine());
+
+                switch (opcaoEscolhidaClasse)
+                {
+                    // Cadastrando nova Loja
+                    case 1:
+                        // Pedindo Dados da Loja
+                        Console.WriteLine();
+                        Console.WriteLine("-----------------------------------------------------------------");
+
+                        // Pedindo ID da nova Loja
+                        Console.WriteLine("Digite o ID da Nova Loja: ");
+                        var idLoja = int.Parse(Console.ReadLine());
+
+                        // Pedindo ENDERECO da nova Loja
+                        Console.WriteLine("Digite o Endereço da Nova Loja: ");
+                        var enderecoLoja = Console.ReadLine();
+
+                        // Pedindo TELEFONE da nova Loja
+                        Console.WriteLine("Digite o TELEFONE da Nova Loja: ");
+                        var telefoneLoja = Console.ReadLine();
+
+                        // Cadastrando nova Loja e adicionando na Lista
+                        Loja novaLoja = new Loja();
+
+                        // Printando na tela para ver se o construtor que chama outro construtor está funcionando corretamente
+                        Console.WriteLine("-------------------------");
+                        Console.WriteLine("Validando Construtor chamando outro Construtor: ");
+                        Console.WriteLine(novaLoja.ToString());
+                        Console.WriteLine("-------------------------");
+
+                        // Cadastrando nova Loja e adicionando na Lista
+                        novaLoja.id = idLoja;
+                        novaLoja.endereco = enderecoLoja;
+                        // Testando Método Público que chama Método Protected
+                        novaLoja.updateTelefoneLoja(novaLoja, telefoneLoja);
+                        listaLojas.Add(novaLoja);
+
+                        // Exibindo mensagem de sucesso e voltando ao menu anterior
+                        Console.WriteLine($"Loja Cadastrada com Sucesso!");
+                        Console.WriteLine("-----------------------------------------------------------------");
+                        Console.WriteLine("Digite qualquer tecla para continuar");
+                        Console.ReadLine();
+                        break;
+
+                    // Exibindo Lojas
+                    case 2:
+                        Console.WriteLine("-----------------------------------------------------------------");
+                        Console.WriteLine("Lista de Lojas: ");
+
+                        // Verificando Tamanho da Lista
+                        if (listaLojas.Count == 0)
+                        {
+                            Console.WriteLine("A Lista de Lojas está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
+                        }
+                        else
+                        {
+                            // Exibindo Lista de Lojas e Dados
+                            // Chamando Método que Chama o Método Internal para Teste
+                            // CONTINUAR DAQUI
+                            ClassLibrary.Models.Loja.show
+                        }
+
+                        // Voltando ao menu anterior
+                        Console.WriteLine("-----------------------------------------------------------------");
+                        Console.WriteLine("Digite qualquer tecla para continuar");
+                        Console.ReadLine();
+                        break;
+
+                    // Deletando Lojas
+                    case 3:
+                        Console.WriteLine("-----------------------------------------------------------------");
+                        Console.WriteLine("Lista de Lojas: ");
+
+                        // Verificando Tamanho da Lista
+                        if (listaLojas.Count == 0)
+                        {
+                            Console.WriteLine("A Lista de Lojas está vazia.");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                            break;
+                        }
+                        else
+                        {
+                            // Exibindo Lista de Lojas e Dados
+                            foreach (var loja in listaLojas)
+                            {
+                                Console.WriteLine("-------------------------");
+                                Console.WriteLine($"ID: {loja.id} | TELEFONE: {loja.telefone}");
+                            }
+                        }
+
+                        // Capturando o ID da Loja a ser Deletada
+                        Console.WriteLine("Digite o ID da Loja que Deseja Deletar: ");
+                        var idDelete = int.Parse(Console.ReadLine());
+
+                        // Declarando booleano para validação
+                        bool lojaEncontrada = false;
+
+                        // Percorrendo lista de Lojas para deletar
+                        foreach (var loja in listaLojas)
+                        {
+                            if (loja.id == idDelete)
+                            {
+                                // Removendo a Loja com ID digitado
+                                listaLojas.Remove(loja);
+                                lojaEncontrada = true;
+                                Console.WriteLine($"Loja Deletada com Sucesso!");
+                                Console.WriteLine("-----------------------------------------------------------------");
+                                Console.WriteLine("Digite qualquer tecla para continuar");
+                                Console.ReadLine();
+                                break;
+                            }
+                        }
+                        // Caso o ID não exista, voltar ao menu anterior
+                        if (!lojaEncontrada)
+                        {
+                            Console.WriteLine($"ID não encontrado!");
+                            Console.WriteLine("-----------------------------------------------------------------");
+                            Console.WriteLine("Digite qualquer tecla para continuar");
+                            Console.ReadLine();
+                        }
+                        break;
+
+                    // Voltando ao menu anterior
+                    default:
+                        menuClasse = false;
+                        break;
+                }
+            }
+            break;
 
         // Encerrando o Programa
         default:

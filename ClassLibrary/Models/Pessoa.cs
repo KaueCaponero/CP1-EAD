@@ -31,9 +31,9 @@ namespace ClassLibrary.Models
         }
 
         // Método Virtual para ser Sobrescrito
-        protected virtual void getNome()
+        public virtual string getNome()
         {
-            Console.WriteLine(nome);
+            return nome;
         }
     }
 }

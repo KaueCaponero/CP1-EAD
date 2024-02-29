@@ -33,13 +33,15 @@ namespace ClassLibrary.Models
         }
 
         // Método que Sobrescreve o Método Virtual de Pessoa
-        protected override void getNome()
+        public override string getNome()
         {
             if (nome == null)
             {
                 Console.WriteLine("O Nome do Vendedor não foi cadastrado.");
+                return null;
             }
-            Console.WriteLine($"O nome do Vendedor é: {nome}");
+            Console.WriteLine($"O Nome do Vendedor é: {nome}");
+            return nome;
         }
 
         // Método Privado para Retornar o CPF de um Vendedor
